@@ -3,6 +3,10 @@ import { Box, Flex, Link, Text, Stack, Popover, PopoverTrigger, PopoverContent }
 import { SearchIcon } from '@chakra-ui/icons'
 import { SlUser } from 'react-icons/sl'
 import { IoBagOutline } from 'react-icons/io5'
+import HeaderSub from './HeaderSub'
+
+
+
 export default function Header() {
     return (
         <Box
@@ -13,6 +17,7 @@ export default function Header() {
             fontSize='14px'
             lineHeight='19.6px'
             padding={'20px 0px'}
+            minH={'60px'}
         >
             <Box
                 color='#212121'
@@ -90,34 +95,10 @@ export default function Header() {
                 </Flex>
             </Box>
             <Stack direction={'row'} align="center" justifyContent={'center'} pt={4} >
-                {menueItems && menueItems.map((item) => (
-                    <Box key={item}>
-                        <Popover trigger={'hover'} placement={'bottom-start'} >
-                            <PopoverTrigger>
-                                <Link
-                                    backgroundColor='#ffffff'
-                                    color='#212121'
-                                    display='inline-block'
-                                    fontFamily='Avenir Next'
-                                    fontSize='14px'
-                                    fontWeight='500'
-                                    letterSpacing='1.4px'
-                                    lineHeight='14px'
-                                    padding='7.5px 15px'
-                                    textAlign='center'
-                                >
-                                    {item}
-                                </Link>
-                            </PopoverTrigger>
-                        </Popover>
-                    </Box>
-                ))
-                }
-
+                <HeaderSub />
             </Stack>
         </Box>
     )
 }
 
 
-const menueItems: string[] = ['New Arrivals', "DU Exclusive", "Clothing", 'Dresses', "Shoes", "Accessories", 'Sale']
