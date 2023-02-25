@@ -3,6 +3,7 @@ import { Inter } from '@next/font/google'
 import { Box } from '@chakra-ui/react'
 import AnouncmentBar from '@/components/anounceMent/AnouncmentBar'
 import Header from '@/components/header/Header'
+import Carousel from '@/components/Carosel/Carousel'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
         <Box minH={'100vh'}>
           <AnouncmentBar />
           <Header />
+          <Carousel />
         </Box>
       </main>
     </>
