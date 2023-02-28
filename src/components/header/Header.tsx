@@ -38,10 +38,10 @@ export default function Header() {
                     >
                         <Link
                             display='inline-block'
-                            font-family='Avenir Next'
+                            fontFamily='Avenir Next'
                             fontSize='20px'
-                            font-weight='500'
-                            letter-spacing='1.4px'
+                            fontWeight='500'
+                            letterSpacing='1.4px'
                             line-height='14px'
                             padding='7.5px 12px'
                         >
@@ -71,10 +71,10 @@ export default function Header() {
                     <Box>
                         <Link
                             display='inline-block'
-                            font-family='Avenir Next'
+                            fontFamily='Avenir Next'
                             fontSize='20px'
-                            font-weight='500'
-                            letter-spacing='1.4px'
+                            fontWeight='500'
+                            letterSpacing='1.4px'
                             line-height='14px'
                             padding='7.5px 12px'
                         >
@@ -82,10 +82,10 @@ export default function Header() {
                         </Link>
                         <Link
                             display='inline-block'
-                            font-family='Avenir Next'
+                            fontFamily='Avenir Next'
                             fontSize='20px'
-                            font-weight='500'
-                            letter-spacing='1.4px'
+                            fontWeight='500'
+                            letterSpacing='1.4px'
                             line-height='14px'
                             padding='7.5px 12px'
                         >

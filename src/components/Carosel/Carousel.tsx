@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { AspectRatio, Box, Text, Button, Flex } from '@chakra-ui/react'
+import { AspectRatio, Box, Text, Button, Flex, Circle } from '@chakra-ui/react'
 import { motion, AnimatePresence } from 'framer-motion'
-
+import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs"
 
 export default function Carousel() {
 
@@ -11,7 +11,7 @@ export default function Carousel() {
     useEffect(() => {
         const timer = setInterval(() => {
             setCurSilde((curSlide) => (curSlide + 1) % carouselArr.length);
-        }, 2000)
+        }, 4000)
         return () => (clearInterval(timer))
     }, [curSlide])
 
@@ -20,12 +20,12 @@ export default function Carousel() {
         <Box
             maxW={'80%'}
             margin="10px auto"
+            maxH={'100%'}
         >
             <AspectRatio
-                ratio={{ sm: 5 / 3, md: 4 / 2, lg: 1 / 1 }}
+                ratio={{ sm: 5 / 3, md: 4 / 2, lg: 4 / 2 }}
                 minW={'100%'}
-                maxH={'450px'}
-                h={{ sm: '350px', md: '450px' }}
+                h={'100%'}
                 borderRadius={'3xl'}
                 position="relative"
             >
@@ -40,8 +40,9 @@ export default function Carousel() {
                         backgroundPosition="right"
                         borderRadius={{ sm: 'xl', md: '2xl' }}
                         initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-                        transition={{ ease: "easeInOut", duration: 1 }}
+                        transition={{ ease: "easeInOut", duration: '1' }}
                         exit={{ opacity: 0 }}
+                        position="relative"
                     >
                         <Box
                             maxH="100%"
@@ -81,9 +82,47 @@ export default function Carousel() {
                                 >SHOP NOW</Button>
                             </Flex>
                         </Box>
+                        <Flex
+                            position={'absolute'}
+                            bottom={2}
+                        >
+                            {circles.map((value, index) => {
+                                return (
+                                    <Circle
+                                        key={value}
+                                        size={'20px'}
+                                        bg={curSlide === index ? 'red.700' : 'gray.100'}
+                                        onClick={() => { setCurSilde(index) }}
+                                        cursor="pointer"
+                                        mx={1}
+                                    ></Circle>
+                                )
+                            })}
+
+                        </Flex>
+                        <Circle
+                            bg="rgba(0, 0, 0, 0.5)"
+                            cursor={'pointer'}
+                            position="absolute"
+                            left={3}
+                            p={1}
+                            onClick={() => { setCurSilde((curSlide) => curSlide===0 ? 2 : curSlide - 1) }}
+                        >
+                            <BsChevronCompactLeft size={30} color="white" />
+                        </Circle>
+                        <Circle
+                            bg="rgba(0, 0, 0, 0.5)"
+                            cursor={'pointer'}
+                            position="absolute"
+                            right={3}
+                            p={1}
+                            onClick={() => { setCurSilde((curSlide) => (curSlide + 1) % carouselArr.length) }}
+                        >
+                            <BsChevronCompactRight size={30} color="white" />
+                        </Circle>
                     </Box>
-            </AnimatePresence>
-        </AspectRatio>
+                </AnimatePresence>
+            </AspectRatio>
         </Box >
     )
 }
@@ -123,3 +162,6 @@ const carouselArr: CaroselOBJ[] = [
         url: '#'
     },
 ]
+
+
+const circles: number[] = [0, 1, 2]
