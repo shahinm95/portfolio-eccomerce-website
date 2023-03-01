@@ -12,12 +12,12 @@ export default function Category() {
     }
 
     return (
-        <Box w={'100%'} border="1px solid" borderColor={'gray.300'} borderRadius="2xl" p={4} >
+        <Box w={'100%'} border="1px solid" borderColor={'gray.300'} borderRadius="2xl" p={4}  >
             <Text mb={5} fontSize={17} fontWeight={700} mt={3}>CATEGORY</Text>
             {category.map((head, index) => {
                 return <Flex direction={'column'} key={head.head}>
                     <Link onClick={()=> toggleCategory(index)} _hover={{ textDecoration: "none" }}
-                        key={head.head} borderBottom={isOpen[index] ? "1px solid" : "none"}
+                         borderBottom={isOpen[index] ? "1px solid" : "none"}
                         borderBottomColor="gray.300" fontWeight={500} fontSize={16} my={2}
                     >
                         <Flex justify={'space-between'} align="center">
@@ -29,7 +29,7 @@ export default function Category() {
                         </Flex>
                     </Link>
 
-                    <Collapse in={isOpen[index]} animateOpacity key={head.head}>
+                    <Collapse in={isOpen[index]} animateOpacity >
                         {head.sub.map((sub) => {
                             return <Link key={sub.title} _hover={{ textDecoration: "none" }}>
                                 <Flex flex={1} justify="space-between">
