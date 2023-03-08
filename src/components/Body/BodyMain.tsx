@@ -24,7 +24,6 @@ export default function BodyMain() {
             </Flex>
             <Information />
             <Blog />
-            <Footer />
         </Box>
     )
 }

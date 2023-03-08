@@ -5,6 +5,7 @@ import AnouncmentBar from '@/components/anounceMent/AnouncmentBar'
 import Header from '@/components/header/Header'
 import Carousel from '@/components/Carosel/Carousel'
 import BodyMain from '@/components/Body/BodyMain'
+import Footer from '@/components/Body/Footer/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
           <Header />
           <Carousel />
           <BodyMain />
+          <Footer />
         </Box>
       </main>
     </>

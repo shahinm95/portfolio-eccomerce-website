@@ -5,7 +5,7 @@ import Categories from './Categories'
 import CopyRight from './CopyRight'
 export default function Footer() {
   return (
-    <Box>
+    <Box bg="gray.800" color={'white'}>
         <BrandDirectory />
         <Categories />
         <CopyRight />
