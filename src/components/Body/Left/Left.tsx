@@ -4,12 +4,16 @@ import Category from './Category'
 import BestSellers from './BestSellers'
 export default function Left() {
   return (
-    <Box w={'100%'} 
-    // overflowY={'auto'} overscrollBehavior="auto" 
-    top={"30px"} left="0" position="sticky" 
+    <Box w={'100%'}
+    minHeight="100vh" 
+      position="relative"
     >
-      <Category />
-      <BestSellers />
+      <Box top={"30px"} left="0" position="sticky" zIndex="1" visibility="visible"
+      overflowY={"auto"} overscrollBehavior="auto"
+      >
+        <Category />
+        <BestSellers />
+      </Box>
     </Box>
   )
 }

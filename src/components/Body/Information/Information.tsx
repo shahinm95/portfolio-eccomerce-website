@@ -5,7 +5,7 @@ import Discount from './Discount'
 import Services from './Services'
 export default function Information() {
   return (
-    <Flex flex={1} mt={10}>
+    <Flex flex={1} mt={10} direction={{base:"column", lg:"row"}} justify="space-between" >
         <Testimonial/>
         <Discount />
         <Services />

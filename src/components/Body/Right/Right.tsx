@@ -9,22 +9,22 @@ import SuggestedForYou from './SuggestedForYou'
 export default function Right() {
     const [activeTab, setActiveTab] = useState<number>(0)
 
-
-
     return (
         <Box
             flex={1}
+            w="80%"
+            textAlign={{base:"center", md: "left"}}
+            
         >
             <Flex
                 fontWeight={600}
-                textAlign="left"
                 mt={5}
                 fontSize={20}
                 mb={5}
-
+                
             >
                 {categoryArr.map((cat, index) => {
-                    return <Link flex={1} key={cat}
+                    return <Link flex={1} maxW="100%" key={cat}
                         borderBottom={'solid 2px'}
                         borderColor={activeTab === index ? "gray.800" : "gray.300"}
                         onClick={() => setActiveTab(index)}

@@ -10,12 +10,12 @@ export default function BrandDirectory() {
         </Text>
         {brands.map((brand) => {
           return (
-            <Flex key={brand.head} mt={5} >
-              <Text flex={1} pr={5} alignSelf="baseline" fontWeight={500} fontSize="md" >{brand.head} :</Text>
+            <Flex key={brand.head} mt={5} wrap={"nowrap"} >
+              <Text flex={1} pr={5} alignSelf="baseline" fontWeight={500} fontSize="md" >{brand.head}:</Text>
               <Flex wrap={"wrap"} flex={9} alignSelf="baseline" >{brand.sub.map((sub, index) => {
                 return <Text key={sub} mr={2}  >
                   <Link lineHeight={10} mr={2} display="inline-block" fontSize={"sm"}
-                   _hover={{color : 'red.300', textDecoration: "none"}}
+                    _hover={{ color: 'red.300', textDecoration: "none" }}
                   >{sub}</Link>
                   {index !== brand.sub.length - 1 ? "|" : ""}
                 </Text>

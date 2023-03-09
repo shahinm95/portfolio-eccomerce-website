@@ -24,8 +24,8 @@ export default function MainContent({ activeTab }: prop) {
     }
     const itemsToShow = itemsToShowFunc(activeTab);
     return (
-        <Box>
-            <Grid templateColumns={{ sm: 'repeat(2, 1fr)', md: "repeat(2, 1fr)", lg: 'repeat(3, 1fr)' }} gap={6} >
+        <Box w="100%" fontSize={{base:"sm", md:"md"}}>
+            <Grid templateColumns={{ base: 'repeat(2, 1fr)', md: "repeat(2, 1fr)", lg: 'repeat(3, 1fr)' }} gap={6} >
                 {itemsToShow && itemsToShow.map((item) => {
                     return (
                         <GridItem key={item.title}
@@ -36,12 +36,8 @@ export default function MainContent({ activeTab }: prop) {
                             _hover={{ boxShadow: 'lg' }}
                         >
                             <AspectRatio
-                                ratio={{ sm: 3 / 5, md: 3 / 4, lg: 3 / 4 }}
-                                minW={{ sm: "60%", md: '100%' }}
-                                maxH={'100%'}
+                                ratio={{ base: 2 / 4, md: 3 / 4, lg: 3 / 4 }}
                             >
-
-
                                 <Link _hover={{ textDecoration: 'none', }} w={'100%'} h={'100%'}
                                     justifyContent={'space-between'}
                                 >
@@ -52,7 +48,9 @@ export default function MainContent({ activeTab }: prop) {
                                             w={'80%'} h={"80%"} m="auto" flex={2}
                                         ></Box>
                                         <VStack flex={1} align="left">
-                                            <Text color={'red.400'} fontWeight="400">{item.catg}</Text>
+                                            <Text color={'red.400'} fontWeight="400"
+                                            
+                                            >{item.catg}</Text>
                                             <Text>{item.title}</Text>
                                             <HStack direction={'row'} spacing={12}>
                                                 <Text fontWeight={700}>{item.oldpr}</Text>
@@ -61,8 +59,6 @@ export default function MainContent({ activeTab }: prop) {
                                         </VStack>
                                     </Flex>
                                 </Link>
-
-
                             </AspectRatio>
                         </GridItem>
                     )

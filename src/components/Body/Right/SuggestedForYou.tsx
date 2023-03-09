@@ -10,7 +10,7 @@ export default function SuggestedForYou() {
             <Text fontWeight={600} fontSize={20} pb={2} mb={6}
                 borderBottom={'1px solid'} borderColor={'gray.300'}
             >Suggested For You</Text>
-            <Grid templateColumns={{ sm: 'repeat(2, 1fr)', md: "repeat(2, 1fr)", lg: 'repeat(3, 1fr)' }} gap={6} >
+            <Grid templateColumns={{ base: 'repeat(2, 1fr)', md: "repeat(2, 1fr)", lg: 'repeat(3, 1fr)' }} gap={6} >
                 {suggested && suggested.map((item) => {
                     return (
                         <GridItem key={item.title}
@@ -22,8 +22,8 @@ export default function SuggestedForYou() {
                             role="group"
                         >
                             <AspectRatio
-                                ratio={{ sm: 3 / 5, md: 3 / 4, lg: 3 / 4 }}
-                                minW={{ sm: "60%", md: '100%' }}
+                                ratio={{ base: 3 / 6, md: 3 / 4, lg: 3 / 4 }}
+                                minW={{ base: "60%", md: '100%' }}
                                 maxH={'100%'}
                             >
 

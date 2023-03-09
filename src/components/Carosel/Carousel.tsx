@@ -23,7 +23,7 @@ export default function Carousel() {
             maxH={'100%'}
         >
             <AspectRatio
-                ratio={{ sm: 5 / 3, md: 4 / 2, lg: 4 / 2 }}
+                ratio={{ base: 3 / 4, md: 4 / 2, lg: 4 / 2 }}
                 minW={'100%'}
                 h={'100%'}
                 borderRadius={'3xl'}
@@ -38,7 +38,7 @@ export default function Carousel() {
                         backgroundImage={carouselArr[curSlide].src}
                         backgroundSize='cover'
                         backgroundPosition="right"
-                        borderRadius={{ sm: 'xl', md: '2xl' }}
+                        borderRadius={{ base: 'xl', md: '2xl' }}
                         initial={{ opacity: 0 }} animate={{ opacity: 1 }}
                         transition={{ ease: "easeInOut", duration: '1' }}
                         exit={{ opacity: 0 }}
@@ -47,18 +47,18 @@ export default function Carousel() {
                         <Box
                             maxH="100%"
                             position='absolute'
-                            left={{ sm: '5%', md: "10%" }}
+                            left={{  md: "10%" }}
                             maxW={'80%'}
                         >
                             <Flex
-                                h={{ sm: '270px', md: "300px" }}
-                                maxW={{ sm: '300px', md: '400px' }}
+                                h={{ base: '270px', md: "300px" }}
+                                maxW={{ base: '300px', md: '400px' }}
                                 borderRadius={'2xl'}
                                 p={4}
                                 flex={1}
                                 direction="column"
                                 justify={'space-between'}
-                                bg={{ sm: "rgba(256, 256, 256, 0.8)", md: "none" }}
+                                bg={{ base: "rgba(256, 256, 256, 0.8)", md: "none" }}
                             >
                                 <Text
                                     color="red.400"
@@ -66,7 +66,7 @@ export default function Carousel() {
                                 >{carouselArr[curSlide].upHead}</Text>
                                 <Text
                                     fontWeight={800}
-                                    fontSize={{ sm: '2xl', md: "3xl" }}
+                                    fontSize={{ base: '2xl', md: "3xl" }}
                                 >{carouselArr[curSlide].head}</Text>
                                 <Text
                                     fontSize={20}
@@ -90,7 +90,7 @@ export default function Carousel() {
                                 return (
                                     <Circle
                                         key={value}
-                                        size={'20px'}
+                                        size={{base:"10px",md:'20px'}}
                                         bg={curSlide === index ? 'red.700' : 'gray.100'}
                                         onClick={() => { setCurSilde(index) }}
                                         cursor="pointer"

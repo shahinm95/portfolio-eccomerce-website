@@ -8,17 +8,18 @@ import Footer from './Footer/Footer'
 export default function BodyMain() {
     return (
         <Box
-            maxW={'80%'}
+            w={'80%'}
             m="auto"
             position={"relative"}
+             
         >
-            <Flex >
-                <Flex position={"sticky"}
-                    flex={1} mr={3} display={{ sm: "none", md: 'flex' }}>
-                    <Left  />
+            <Flex minHeight="100vh">
+                <Flex  minHeight="100vh" position="sticky"
+                    flex={1} mr={3} display={{ base: "none", md: 'flex' }}>
+                    <Left />
                 </Flex>
-                <Flex 
-                    flex={3}>
+                <Flex flex={{base:1, md:3}}
+                    >
                     <Right />
                 </Flex>
             </Flex>

@@ -18,6 +18,7 @@ export default function Header() {
             lineHeight='19.6px'
             padding={'20px 0px'}
             minH={'60px'}
+            borderBottom="none"
         >
             <Box
                 color='#212121'
@@ -58,17 +59,20 @@ export default function Header() {
                         fontSize='14px'
                         lineHeight='19.6px'
                         margin='0px 30px'
+                        flex={1}
+                        
                     >
                         <Text
                             color='#212121'
                             fontSize='32px'
                             lineHeight='42px'
-                            textAlign='center'
+                            mx="auto"
+                            textAlign={{base:"left",md:'center'}}
                         >
                             Dress Shop
                         </Text>
                     </Box>
-                    <Box>
+                    <Box display={{base:'none', md:"block"}} >
                         <Link
                             display='inline-block'
                             fontFamily='Avenir Next'
@@ -94,7 +98,8 @@ export default function Header() {
                     </Box>
                 </Flex>
             </Box>
-            <Stack direction={'row'} align="center" justifyContent={'center'} pt={4} >
+            <Stack direction={'row'} display={{base:'none', md:"flex"}}
+            align="center" justifyContent={'center'} pt={4} >
                 <HeaderSub />
             </Stack>
         </Box>
