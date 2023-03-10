@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { Box, Flex, Link,chakra } from '@chakra-ui/react'
 import MainContent from './MainContent'
-import DealOfDay from './DealOfDay'
-import SuggestedForYou from './SuggestedForYou'
+
 
 
 
@@ -47,8 +46,7 @@ export default function Right() {
             </Flex>
 
             <MainContent activeTab={activeTab} />
-            <DealOfDay />
-            <SuggestedForYou />
+
         </Box>
     )
 }

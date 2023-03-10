@@ -22,14 +22,14 @@ export const brands: Brand[] = [
     {
         head: "JEWELLERY",
         sub: [
-            "Necklace", "Earrings", "Couple Rings", "Pendants", "Crystal", "Bracelets", "Nosepin", "Chain", "Earrings", "Couple Rings"
+            "Necklace", "Earring", "Couple Rings", "Pendants", "Crystal", "Bracelets", "Nosepin", "Chain", "Earrings", "Couple Ring"
         ]
     },
     {
         head: "COSMETICS",
         sub: [
-            "Shampoo", "Bodywash", "Facewash", "Makeup Kit", "Liner", "Lipstick", "Prefume", "Body Soap", "Scrub", "Hair Gel", "Hair Colors",
-            "Hair Dye", "Sunscreen", "Skin Loson", "Liner", "Lipstick",
+            "Shampoo", "Bodywash", "Facewash", "Makeup Kit", "Liners", "Lipstick", "Prefume", "Body Soap", "Scrub", "Hair Gel", "Hair Colors",
+            "Hair Dye", "Sunscreen", "Skin Loson", "Liner", "Lipsticks",
         ]
     },
 ]

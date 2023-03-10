@@ -10,12 +10,12 @@ export default function DealOfDay() {
             <Text fontWeight={600} fontSize={20} pb={2}
                 borderBottom={'1px solid'} borderColor={'gray.300'}
             >Deal Of The Day</Text>
-            <Box maxW={'100%'} overflowX={'scroll'}>
+            <Box maxW={'100%'} >
                 <Flex 
-                overflowX={'auto'} 
+                overflowX={'scroll'} 
                 scrollSnapType="inline mandatary" 
                 gap={'20px'}
-                    className="has-scrollbar"
+                className="has-scrollbar"
                 >
                     {dealOfDay.map((deal) => {
                         return (
@@ -35,7 +35,7 @@ export default function DealOfDay() {
                                         <Text fontWeight={700} color="red.400">{deal.price}</Text>
                                         <Text><del>{deal.oldpr}</del></Text>
                                     </Flex>
-                                    <Button bg={'red.300'} color="white" _hover={{ bg: 'red.400' }} mx="auto"
+                                    <Button bg={'red.300'} color="white" _hover={{ bg: 'red.400' }} mx={{base:"auto", md:"0"}}
                                         maxW={{base:"100px", md:'50%'}}  fontSize={{base: 'sm' , md: "md"}}
                                     >ADD TO CART</Button>
                                     <Flex justify={"space-between"} display={{base:"none", md:"flex"}} >
@@ -47,7 +47,7 @@ export default function DealOfDay() {
                                         >{deal.available}</Text></Box>
                                     </Flex>
                                     <Text fontWeight={{base:"normal", md:"bold"}} display={{base:"none", md:"block"}}  >HURRY UP! OFFER ENDS IN:</Text>
-                                    <Flex gap={5} justify="space-between" maxW={"100%"} display={{base:"none", md:"flex"}} >
+                                    <Flex gap={5} justify="space-evenly" maxW={"100%"} display={{base:"none", md:"flex"}} >
                                         <Box bg={'gray.200'} minW={20} p={2} borderRadius="2xl" textAlign={'center'} >
                                             <Text fontWeight={700} >{deal.remaining.day}</Text>
                                             <Text>Days</Text>

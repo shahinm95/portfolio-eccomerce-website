@@ -10,7 +10,7 @@ export default function SuggestedForYou() {
             <Text fontWeight={600} fontSize={20} pb={2} mb={6}
                 borderBottom={'1px solid'} borderColor={'gray.300'}
             >Suggested For You</Text>
-            <Grid templateColumns={{ base: 'repeat(2, 1fr)', md: "repeat(2, 1fr)", lg: 'repeat(3, 1fr)' }} gap={6} >
+            <Grid templateColumns={{ base: 'repeat(2, 1fr)', md: "repeat(2, 1fr)", lg: 'repeat(4, 1fr)' }} gap={6} >
                 {suggested && suggested.map((item) => {
                     return (
                         <GridItem key={item.title}
@@ -38,14 +38,14 @@ export default function SuggestedForYou() {
                                             w={'80%'} h={"80%"} m="auto" flex={2}
                                             _groupHover={{bgImage: item.img2, }}
                                         ></Box>
-                                        <VStack flex={1} align="left">
+                                        <Flex flex={1} align="left" direction={'column'} justify="space-evenly" >
                                             <Text color={'red.400'} fontWeight="400">{item.catg}</Text>
                                             <Text>{item.title}</Text>
                                             <HStack direction={'row'} spacing={12}>
                                                 <Text fontWeight={700}>{item.oldpr}</Text>
                                                 <del>{item.price}</del>
                                             </HStack>
-                                        </VStack>
+                                        </Flex>
                                     </Flex>
                                 </Link>
 

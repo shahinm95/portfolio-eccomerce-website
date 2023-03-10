@@ -30,7 +30,7 @@ export const blogs: Blog[] = [
     },
     {
         cat: 'Electronics',
-        title: 'Curbside fashion Trends: How to Win the Pickup Battle.',
+        title: 'Curbside fashion Trends: How to Win the Pickup Battles.',
         img: '/images/blog-4.jpg',
         cite: 'Mr Pawar',
         date: '2022-03-15',

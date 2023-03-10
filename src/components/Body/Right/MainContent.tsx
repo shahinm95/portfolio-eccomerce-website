@@ -41,13 +41,13 @@ export default function MainContent({ activeTab }: prop) {
                                 <Link _hover={{ textDecoration: 'none', }} w={'100%'} h={'100%'}
                                     justifyContent={'space-between'}
                                 >
-                                    <Flex direction={'column'} justify="space-between" w={'100%'} h={'100%'} flex={1}>
+                                    <Flex direction={'column'}  justify="space-between" w={'100%'} h={'100%'} flex={1}>
                                         <Box backgroundImage={item.img}
                                             backgroundSize='cover'
                                             backgroundPosition="center"
                                             w={'80%'} h={"80%"} m="auto" flex={2}
                                         ></Box>
-                                        <VStack flex={1} align="left">
+                                        <Flex flex={1} align="left" direction={'column'} justify="space-evenly">
                                             <Text color={'red.400'} fontWeight="400"
                                             
                                             >{item.catg}</Text>
@@ -56,7 +56,7 @@ export default function MainContent({ activeTab }: prop) {
                                                 <Text fontWeight={700}>{item.oldpr}</Text>
                                                 <del>{item.price}</del>
                                             </HStack>
-                                        </VStack>
+                                        </Flex>
                                     </Flex>
                                 </Link>
                             </AspectRatio>

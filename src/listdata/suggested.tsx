@@ -83,7 +83,7 @@ export const suggested: BuyType[] = [
         rating: "4.5",
     },
     {
-        title: "Mens Winter Leathers Jackets",
+        title: "Mens Winter Leathers Jackets2",
         img: "/images/products/jacket-1.jpg",
         img2: "/images/products/jacket-2.jpg",
         catg: "jacket",
