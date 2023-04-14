@@ -7,12 +7,13 @@ import {
   Grid,
   GridItem,
   HStack,
-  VStack, Icon,
+  VStack,
+  Icon,
   AspectRatio,
 } from "@chakra-ui/react";
 import { suggested } from "@/listdata/suggested";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
-import {MdAddBox} from 'react-icons/md'
+import { MdAddBox } from "react-icons/md";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { addToCart, toggleToLiked } from "@/redux/actions";
@@ -101,20 +102,36 @@ export default function SuggestedForYou() {
                           <Text color={"red.400"} fontWeight="400">
                             {item.catg}
                           </Text>
-                          <Text fontSize={20} color="red.300" cursor={'pointer'} _hover={{color: 'red.700'}}
-                          onClick={()=>{
-                            return dispatch(toggleToLiked(item.title, item.img, item.price))
-                          }}>
-                          {LikedOrNotHAndler(item.title)}
+                          <Text
+                            fontSize={20}
+                            color="red.300"
+                            cursor={"pointer"}
+                            _hover={{ color: "red.700" }}
+                            onClick={() => {
+                              return dispatch(
+                                toggleToLiked(item.title, item.img, item.price)
+                              );
+                            }}
+                          >
+                            {LikedOrNotHAndler(item.title)}
                           </Text>
                         </Flex>
                         <Link>{item.title}</Link>
-                        <Flex direction={"row"} justify="space-between" align="center">
+                        <Flex
+                          direction={"row"}
+                          justify="space-between"
+                          align="center"
+                        >
                           <Text fontWeight={700}>{item.price}</Text>
                           <del>{item.oldpr}</del>
                           <Box>
-                            <Icon as={MdAddBox} fontSize={25} color={'red'} cursor={'pointer'}
-                            bgColor={'white'} _hover={{color:'red.700'}}
+                            <Icon
+                              as={MdAddBox}
+                              fontSize={25}
+                              color={"red"}
+                              cursor={"pointer"}
+                              bgColor={"white"}
+                              _hover={{ color: "red.700" }}
                             ></Icon>
                           </Box>
                         </Flex>
