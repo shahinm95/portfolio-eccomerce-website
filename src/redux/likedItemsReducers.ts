@@ -1,28 +1,20 @@
 
 interface AddToCartAction {
-    type: 'ADD_TO_CART',
+    type: 'TOGGLE_TO_LIKED',
     payload: {
       title: string,
       img: string,
       price: string,
-      quantity: number
     }
   }
 
-  interface RemoveFromCartAction {
-    type: 'REMOVE_FROM_CART',
-    payload: {
-      title: string,
-    }
-  }
   
-  type CartAction = AddToCartAction | RemoveFromCartAction;
+  type CartAction = AddToCartAction 
 
 interface BuyType {
     title: string;
     img: string;
     price: string;
-    quantity: number;
   }
   
   
@@ -36,18 +28,14 @@ interface BuyType {
   
   const likedItemsReducer = (state: InitialStateType = initialState, action: CartAction) :InitialStateType  => {
     switch (action.type) {
-      case "ADD_TO_CART":
+      case "TOGGLE_TO_LIKED":
         // check if item already exist in cart
         const existingItem = state.cartItems.findIndex(
-          (item) => item.title === action.payload.title
+          (item) => item.title === action.payload.title  && item.img === action.payload.img 
         );
-        if (existingItem) {
-          const upadatedCartItems = [...state.cartItems];
-          upadatedCartItems[existingItem] = {
-            ...upadatedCartItems[existingItem],
-            quantity: upadatedCartItems[existingItem].quantity + 1,
-          };
-          return { ...state, cartItems: upadatedCartItems };
+        if (existingItem !== -1) {
+          const FilteredItems = state.cartItems.filter(item => item.title !== action.payload.title)
+          return { ...state, cartItems: [...FilteredItems]};
         } else {
           return { ...state, cartItems: [...state.cartItems, action.payload] };
         }

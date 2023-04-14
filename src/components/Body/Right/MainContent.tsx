@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   Box,
   Flex,
@@ -9,25 +9,26 @@ import {
   Link,
   HStack,
   VStack,
-  Icon,
+  Icon, Button
 } from "@chakra-ui/react";
 import { NewArrivals } from "@/listdata/newArrivals";
 import { trendings } from "@/listdata/trendings";
 import { topRated } from "@/listdata/topRated";
 import { MdAddBox } from "react-icons/md";
-import { addToCart } from "@/redux/actions";
+import { addToCart, toggleToLiked } from "@/redux/actions";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
-
-
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 interface prop {
   activeTab: number;
 }
 
 export default function MainContent({ activeTab }: prop) {
-const cartItems = useSelector((state:RootState)=> state.cartReducer.cartItems)
-    const dispatch = useDispatch();
+  const cartItems = useSelector(
+    (state: RootState) => state.cartReducer.cartItems
+  );
+  const dispatch = useDispatch();
 
   function itemsToShowFunc(activeTab: number) {
     if (activeTab === 0) {
@@ -38,11 +39,21 @@ const cartItems = useSelector((state:RootState)=> state.cartReducer.cartItems)
       return topRated;
     }
   }
+
+  const likedItems = useSelector(
+    (state:RootState)=> state.likedItemsReducer.cartItems
+  )
+
   const itemsToShow = itemsToShowFunc(activeTab);
 
-  const addToCartHandler = (title:string, img:string, price:string, quantity:number)=>{
-    dispatch(addToCart(title, img, price, quantity ))
-    console.log(cartItems);
+  const addToCartHandler = (title: string, img: string, price: string) => {
+    dispatch(addToCart(title, img, price, 1));
+  };
+
+
+  const likedItemCheker = (title:string) => {
+    const isTrue = likedItems.findIndex((a)=> a.title === title)
+    if(isTrue !== -1){ return <AiFillHeart />  } else {return <AiOutlineHeart />}
   }
 
   return (
@@ -56,7 +67,7 @@ const cartItems = useSelector((state:RootState)=> state.cartReducer.cartItems)
         gap={6}
       >
         {itemsToShow &&
-          itemsToShow.map((item) => {
+          itemsToShow.map((item, index) => {
             return (
               <GridItem
                 key={item.title}
@@ -67,8 +78,7 @@ const cartItems = useSelector((state:RootState)=> state.cartReducer.cartItems)
                 _hover={{ boxShadow: "lg" }}
               >
                 <AspectRatio ratio={{ base: 2 / 4, md: 3 / 4, lg: 3 / 4 }}>
-                  <Link
-                    _hover={{ textDecoration: "none" }}
+                  <Box
                     w={"100%"}
                     h={"100%"}
                     justifyContent={"space-between"}
@@ -80,7 +90,7 @@ const cartItems = useSelector((state:RootState)=> state.cartReducer.cartItems)
                       h={"100%"}
                       flex={1}
                     >
-                      <Box
+                      <Link
                         backgroundImage={item.img}
                         backgroundSize="cover"
                         backgroundPosition="center"
@@ -88,35 +98,54 @@ const cartItems = useSelector((state:RootState)=> state.cartReducer.cartItems)
                         h={"80%"}
                         m="auto"
                         flex={2}
-                      ></Box>
+                      ></Link>
                       <Flex
                         flex={1}
                         align="left"
                         direction={"column"}
                         justify="space-evenly"
                       >
-                        <Text color={"red.400"} fontWeight="400">
-                          {item.catg}
-                        </Text>
-                        <Text>{item.title}</Text>
+                        <Box>
+                          <Flex direction={"row"} justify={'space-between'} align="center">
+                            <Text color={"red.400"} fontWeight="400">
+                              {item.catg}
+                            </Text>
+                            <Text fontSize={20} color={'red.300'} cursor={'pointer'} _hover={{color:"red.700"}}
+                            onClick={()=>{
+                              return dispatch(toggleToLiked(item.title, item.img, item.price))
+                            }}
+                            >
+                              {likedItemCheker(itemsToShow[index].title)}
+                            </Text>
+                          </Flex>
+                        </Box>
+                        <Link>{item.title}</Link>
                         <Flex justify={"space-between"}>
                           <Text fontWeight={700}>{item.price}</Text>
                           <del>{item.oldpr}</del>
-                          <Link onClick={()=>{
-                            addToCartHandler(item.title, item.img, item.price, 1)
-                          }}>
+                          <Box
+                            onClick={() => {
+                              addToCartHandler(
+                                item.title,
+                                item.img,
+                                item.price
+                              );
+                            }}
+                            
+                          >
                             <Icon
                               as={MdAddBox}
                               color="red"
                               backgroundColor={"white"}
                               fontSize={25}
-                              _hover={{color: "red.200", scale: 2}}
+                              _hover={{ color: "red.700", }}
+                              cursor={'pointer'}
                             ></Icon>
-                          </Link>
+                          </Box>
                         </Flex>
                       </Flex>
                     </Flex>
-                  </Link>
+                  </Box>
                 </AspectRatio>
               </GridItem>
             );
