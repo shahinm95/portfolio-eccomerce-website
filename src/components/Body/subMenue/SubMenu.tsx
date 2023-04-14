@@ -15,6 +15,10 @@ import { AiOutlineMenu, AiOutlineHome, AiOutlineHeart } from "react-icons/ai";
 import { IoBagOutline } from "react-icons/io5";
 import { BsGrid } from "react-icons/bs";
 import SideMenu from "./SideMenu";
+import Icon from "@chakra-ui/icon";
+
+
+
 export default function SubMenu() {
   const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
   return (
@@ -34,9 +38,10 @@ export default function SubMenu() {
       alignItems="center"
       color="gray.700"
     >
-      <Link fontSize={28} onClick={onToggle}>
+      <Link href="#" fontSize={28} onClick={onToggle}>
         <AiOutlineMenu />
       </Link>
+
       <Link fontSize={28}>
         <IoBagOutline />
       </Link>
@@ -49,10 +54,12 @@ export default function SubMenu() {
       <Link fontSize={28}>
         <BsGrid />
       </Link>
-      <Drawer isOpen={isOpen} placement="left" onClose={onClose} size='full'>
+      <Drawer isOpen={isOpen} placement="left" onClose={onClose} size="full">
         <DrawerContent>
           <DrawerCloseButton></DrawerCloseButton>
-          <DrawerHeader borderBottom={'1px solid'} borderBottomColor="gray.300">Menu</DrawerHeader>
+          <DrawerHeader borderBottom={"1px solid"} borderBottomColor="gray.300">
+            Menu
+          </DrawerHeader>
           <DrawerBody>
             <SideMenu onClose={onClose} />
           </DrawerBody>

@@ -35,7 +35,7 @@ export default function SideMenu({ onClose }: SideMenuProps) {
             </Link>
             <Collapse in={isOpen[index]} animateOpacity>
                     {item.children?.map((child, index)=> {return (
-                        <Link display={'block'} _hover={{textDecoration: "none"}} key={child.label} href={child.href}>
+                        <Link display={'block'} _hover={{textDecoration: "none"}} mt={4} key={child.label} href={child.href}>
                             {child.label}
                         </Link>
                     )})}
