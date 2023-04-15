@@ -132,6 +132,7 @@ export default function SuggestedForYou() {
                               cursor={"pointer"}
                               bgColor={"white"}
                               _hover={{ color: "red.700" }}
+                              onClick={()=> dispatch(addToCart(item.title, item.img, item.price, 1))}
                             ></Icon>
                           </Box>
                         </Flex>

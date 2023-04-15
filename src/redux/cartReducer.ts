@@ -64,10 +64,15 @@ const cartReducer = (
       );
       if (existingItemToDecrease !== -1) {
         const upadatedCartItems = [...state.cartItems];
-        upadatedCartItems[existingItemToDecrease] = {
-          ...upadatedCartItems[existingItemToDecrease],
-          quantity: upadatedCartItems[existingItemToDecrease].quantity - 1,
-        };
+        if (upadatedCartItems[existingItemToDecrease].quantity>1) {
+          upadatedCartItems[existingItemToDecrease] = {
+            ...upadatedCartItems[existingItemToDecrease],
+            quantity: upadatedCartItems[existingItemToDecrease].quantity - 1,
+          };
+        } else {
+          upadatedCartItems.splice(existingItemToDecrease, 1);
+        }
+        return { ...state, cartItems: upadatedCartItems };
       } else {
         const updatedCartItems = state.cartItems.filter(
           (item) => item.title !== action.payload.title

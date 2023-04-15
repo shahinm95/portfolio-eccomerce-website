@@ -1,10 +1,16 @@
 import React from 'react'
 import { dealOfDay } from '@/listdata/dealOfDay'
 import { Box, Flex, VStack, Link, Text, Button, AspectRatio } from '@chakra-ui/react'
+import { useDispatch } from "react-redux";
+import { addToCart} from "@/redux/actions";
 
 
 
 export default function DealOfDay() {
+
+    const dispatch = useDispatch();
+
+
     return (
         <Box w={'100%'} mt={10} fontSize={{base: 'sm' , md: "md"}} >
             <Text fontWeight={600} fontSize={20} pb={2}
@@ -37,6 +43,7 @@ export default function DealOfDay() {
                                     </Flex>
                                     <Button bg={'red.300'} color="white" _hover={{ bg: 'red.400' }} mx={{base:"auto", md:"0"}}
                                         maxW={{base:"100px", md:'50%'}}  fontSize={{base: 'sm' , md: "md"}}
+                                        onClick={()=> dispatch(addToCart(deal.title, deal.img, deal.price, 1))}
                                     >ADD TO CART</Button>
                                     <Flex justify={"space-between"} display={{base:"none", md:"flex"}} >
                                         <Box>ALREADY SOlD: <Text display={'inline-block'}

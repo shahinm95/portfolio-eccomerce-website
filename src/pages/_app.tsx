@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import { Suspense } from "react";
 import type { AppProps } from "next/app";
 import { ChakraProvider } from "@chakra-ui/react";
 import { Provider } from "react-redux";
@@ -8,7 +9,9 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider>
       <Provider store={store}>
-        <Component {...pageProps} />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Component {...pageProps} />
+        </Suspense>
       </Provider>
     </ChakraProvider>
   );

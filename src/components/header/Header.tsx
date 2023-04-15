@@ -4,7 +4,7 @@ import { SearchIcon } from '@chakra-ui/icons'
 import { SlUser } from 'react-icons/sl'
 import { IoBagOutline } from 'react-icons/io5'
 import HeaderSub from './HeaderSub'
-
+import Cart from './Cart'
 
 
 export default function Header() {
@@ -19,12 +19,17 @@ export default function Header() {
             padding={'20px 0px'}
             minH={'60px'}
             borderBottom="none"
+
+
         >
             <Box
                 color='#212121'
                 fontSize='14px'
                 lineHeight='19.6px'
                 padding='0px 40px'
+                // position={'sticky'}
+                // maxH={"800px"}
+                // top={0}
             >
                 <Flex
                     alignItems='center'
@@ -72,8 +77,9 @@ export default function Header() {
                             Dress Shop
                         </Text>
                     </Box>
-                    <Box display={{base:'none', md:"block"}} >
-                        <Link
+                    <Flex display={{base:'none', md:"block"}} direction={'row'} >
+                        <Text
+                        cursor={'pointer'}
                             display='inline-block'
                             fontFamily='Avenir Next'
                             fontSize='20px'
@@ -83,25 +89,15 @@ export default function Header() {
                             padding='7.5px 12px'
                         >
                             <SlUser />
-                        </Link>
-                        <Link
-                            display='inline-block'
-                            fontFamily='Avenir Next'
-                            fontSize='20px'
-                            fontWeight='500'
-                            letterSpacing='1.4px'
-                            line-height='14px'
-                            padding='7.5px 12px'
-                        >
-                            <IoBagOutline />
-                        </Link>
-                    </Box>
+                        </Text>
+                        <Cart />
+                    </Flex>
                 </Flex>
             </Box>
-            <Stack direction={'row'} display={{base:'none', md:"flex"}}
-            align="center" justifyContent={'center'} pt={4} >
+            <Box  display={{base:'none', md:"flex"}}
+             justifyContent={'center'} pt={4} >
                 <HeaderSub />
-            </Stack>
+            </Box>
         </Box>
     )
 }
