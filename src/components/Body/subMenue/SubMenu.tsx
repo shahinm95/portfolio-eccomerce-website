@@ -46,8 +46,8 @@ export default function SubMenu() {
         <AiOutlineHome />
       </Link>
       <LikeMobile />
-      <Link fontSize={28}>
-        <BsGrid as={NextLink} href={`/`} />
+      <Link fontSize={28}  as={NextLink} href={`/`}>
+        <BsGrid />
       </Link>
       <Drawer isOpen={isOpen} placement="left" onClose={onClose} size="full">
         <DrawerContent>
