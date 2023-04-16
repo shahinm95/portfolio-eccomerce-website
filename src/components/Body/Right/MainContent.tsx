@@ -20,6 +20,8 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import NextLink from 'next/link';
+
 interface prop {
   activeTab: number;
 }
@@ -92,6 +94,7 @@ export default function MainContent({ activeTab }: prop) {
                     >
                       <Link
                         backgroundImage={item.img}
+                        as={NextLink} href={`/${encodeURIComponent(item.title)}`} 
                         backgroundSize="cover"
                         backgroundPosition="center"
                         w={"80%"}
@@ -119,7 +122,7 @@ export default function MainContent({ activeTab }: prop) {
                             </Text>
                           </Flex>
                         </Box>
-                        <Link>{item.title}</Link>
+                        <Link as={NextLink} href={`/${encodeURIComponent(item.title)}`} >{item.title}</Link>
                         <Flex justify={"space-between"}>
                           <Text fontWeight={700}>{item.price}</Text>
                           <del>{item.oldpr}</del>

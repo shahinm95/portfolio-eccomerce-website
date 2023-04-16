@@ -19,6 +19,7 @@ import { useDispatch } from "react-redux";
 import { toggleToLiked } from "@/redux/actions";
 import { RootState } from "@/redux/store";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import NextLink from 'next/link';
 
 export default function LikeMobile() {
   const { onToggle, isOpen, onOpen, onClose } = useDisclosure();
@@ -73,13 +74,14 @@ export default function LikeMobile() {
                     mb={5}
                   >
                     <Flex justify="space-between" align="center">
-                      <Text>{item.title}</Text>
+                      <Text as={NextLink} href={`/${encodeURIComponent(item.title)}`}>{item.title}</Text>
                       <Box
                         minW={20}
                         minH={20}
                         backgroundImage={item.img}
                         backgroundSize={"cover"}
                         backgroundPosition="center"
+                        as={NextLink} href={`/${encodeURIComponent(item.title)}`}
                       ></Box>
                     </Flex>
                     <Flex justify="space-between" align="center">

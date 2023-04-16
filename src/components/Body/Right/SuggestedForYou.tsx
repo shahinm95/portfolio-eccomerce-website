@@ -18,6 +18,9 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { addToCart, toggleToLiked } from "@/redux/actions";
 import { RootState } from "@/redux/store";
+import NextLink from 'next/link';
+
+
 
 export default function SuggestedForYou() {
   const linkedItems = useSelector(
@@ -90,6 +93,7 @@ export default function SuggestedForYou() {
                         h={"80%"}
                         m="auto"
                         flex={2}
+                        as={NextLink} href={`/${encodeURIComponent(item.title)}`} 
                         _groupHover={{ bgImage: item.img2 }}
                       ></Link>
                       <Flex
@@ -116,7 +120,7 @@ export default function SuggestedForYou() {
                             {LikedOrNotHAndler(item.title)}
                           </Text>
                         </Flex>
-                        <Link>{item.title}</Link>
+                        <Link as={NextLink} href={`/${encodeURIComponent(item.title)}`}>{item.title}</Link>
                         <Flex
                           direction={"row"}
                           justify="space-between"

@@ -21,10 +21,11 @@ interface Product {
 
 const ProductPage = () => {
   const router = useRouter();
-  const { productName  } = router.query;
+  const  productName  = router.asPath;
   const productString =typeof productName === "string" ? decodeURIComponent(productName) : ""
+  const newString = productString.replace(/\//, "")
   const productId: number = MotherList.findIndex(
-    (name) => name.title === productString
+    (name) => name.title === newString
   );
   const product: Product =
     productId === -1 ? ({} as Product) : MotherList[productId];
@@ -51,13 +52,13 @@ const ProductPage = () => {
 
 export default ProductPage;
 
-export function getStaticPaths() {
-  const products: Product[] = MotherList;
-  const paths = products.map((product) => ({
-    params: { productId: encodeURIComponent(product.title) },
-  }));
-  return { paths, fallback: false };
-}
+// export function getStaticPaths() {
+//   const products: Product[] = MotherList;
+//   const paths = products.map((product) => ({
+//     params: { productId: encodeURIComponent(product.title) },
+//   }));
+//   return { paths, fallback: false };
+// }
 
 // export function getStaticProps({ params }: { params: Record<string, string> }) {
 //   const productName = decodeURIComponent(params.productId);

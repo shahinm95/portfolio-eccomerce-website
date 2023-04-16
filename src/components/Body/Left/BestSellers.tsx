@@ -12,6 +12,7 @@ import { bestSeller } from "@/listdata/bestSeller";
 import { MdAddBox } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { addToCart } from "@/redux/actions";
+import NextLink from 'next/link';
 
 
 export default function BestSellers() {
@@ -35,6 +36,7 @@ export default function BestSellers() {
                     w={"100%"}
                     bgPosition="center"
                     bgSize={"cover"}
+                    as={NextLink} href={`/${encodeURIComponent(item.title)}`}
                   ></Box>
                 </AspectRatio>
 
@@ -44,7 +46,7 @@ export default function BestSellers() {
                   pl={3}
                   justify="space-between"
                 >
-                  <Text fontWeight={600}>{item.title}</Text>
+                  <Text fontWeight={600} as={NextLink} href={`/${encodeURIComponent(item.title)}`}>{item.title}</Text>
                   <Flex justify={'space-between'}>
                     <Text fontSize={13} color="red.400">
                       {item.rating}/5

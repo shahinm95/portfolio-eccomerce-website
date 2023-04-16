@@ -18,6 +18,7 @@ import { RootState } from "@/redux/store";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { addToCart, removeFromCartAction } from "@/redux/actions";
+import NextLink from 'next/link';
 
 
 export default function Cart() {
@@ -102,13 +103,14 @@ export default function Cart() {
                   mb={5}
                 >
                   <Flex justify="space-between" align="center">
-                    <Text>{item.title}</Text>
+                    <Text as={NextLink} href={`/${encodeURIComponent(item.title)}`}>{item.title}</Text>
                     <Box
                       minW={20}
                       minH={20}
                       backgroundImage={item.img}
                       backgroundSize={"cover"}
                       backgroundPosition="center"
+                      as={NextLink} href={`/${encodeURIComponent(item.title)}`}
                     ></Box>
                   </Flex>
                   <Flex justify="space-between" align="center">

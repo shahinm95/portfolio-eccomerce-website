@@ -15,6 +15,7 @@ import { IoBagOutline } from "react-icons/io5";
 import HeaderSub from "./HeaderSub";
 import Cart from "./Cart";
 import LikedWindow from "./LikedWindow";
+import NextLink from 'next/link';
 
 export default function Header() {
 
@@ -93,6 +94,7 @@ export default function Header() {
               lineHeight="42px"
               mx="auto"
               textAlign={{ base: "left", md: "center" }}
+              as={NextLink} href={`/`}
             >
               Dress Shop
             </Text>

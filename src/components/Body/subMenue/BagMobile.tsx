@@ -20,6 +20,8 @@ import { addToCart, removeFromCartAction } from "@/redux/actions";
 import { RootState } from "@/redux/store";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import NextLink from 'next/link';
+
 
 export default function BagMobile() {
   const { onToggle, isOpen, onOpen, onClose } = useDisclosure();
@@ -74,7 +76,7 @@ export default function BagMobile() {
             <Text>{CartQuantity} Items</Text>
             <Link color="red.500">See Cart Items </Link>
           </Flex>
-            <Box h={"87%"} overflowY={"auto"}>
+            <Box maxH={"95%"} h={"80%"} overflowY={"auto"}>
               {cartItems.map((item, index) => {
                 return (
                   <Box
@@ -86,13 +88,14 @@ export default function BagMobile() {
                     mb={5}
                   >
                     <Flex justify="space-between" align="center">
-                      <Text>{item.title}</Text>
+                      <Text as={NextLink} href={`/${encodeURIComponent(item.title)}`}>{item.title}</Text>
                       <Box
                         minW={20}
                         minH={20}
                         backgroundImage={item.img}
                         backgroundSize={"cover"}
                         backgroundPosition="center"
+                        as={NextLink} href={`/${encodeURIComponent(item.title)}`}
                       ></Box>
                     </Flex>
                     <Flex justify="space-between" align="center">

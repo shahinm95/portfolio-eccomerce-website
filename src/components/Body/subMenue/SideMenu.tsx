@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Box, Flex, Text, Collapse, Link } from "@chakra-ui/react";
 import { NAV_ITEMS } from "./../../header/items";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
+import NextLink from 'next/link';
 
 interface SideMenuProps {
   onClose: () => void;
@@ -18,7 +19,7 @@ export default function SideMenu({ onClose }: SideMenuProps) {
 
   return (
     <Flex direction={"column"}>
-        <Link _hover={{textDecoration: "none"}} fontSize={17} fontWeight={700} mt={8} >Home</Link>
+        <Link _hover={{textDecoration: "none"}} as={NextLink} href={`/`} fontSize={17} fontWeight={700} mt={8} >Home</Link>
       {NAV_ITEMS.map((item, index) => {
         return (
           <Flex direction={"column"} key={item.label}>

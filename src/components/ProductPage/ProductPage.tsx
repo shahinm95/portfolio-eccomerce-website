@@ -16,40 +16,46 @@ interface ProductPageProps {
 export default function ProductPageComponent({ product }: ProductPageProps) {
   const dispatch = useDispatch();
   return (
-    <Box>
+    <Box mx="auto">
       <Flex
         key={product.title}
-        minW="100%"
-        mt={{ base: 5, md: 5 }}
+        direction={{base:"column", md:'row'}}
+        mt={{base:"100px",md:"150px"}}
+        minW="80%"
+        maxW={"80%"}
+        mx="auto"
         p={{ base: 1, md: 5 }}
         border={"1px solid"}
         borderColor="gray.300"
         borderRadius={"2xl"}
+        mb={10}
       >
         <Link flex={1} justifyContent="center" alignContent={"center"}>
-          <AspectRatio ratio={{ base: 3 / 5, md: 3 / 3 }}>
+          <AspectRatio ratio={{ base: 3 / 3, md: 3 / 3 }} mx="auto">
             <Box
+            mx="auto"
               bgImg={product.img}
               flex={1}
               w="100%"
-              maxH="100%"
+              maxH="80%"
+              maxW={"80%"}
               backgroundPosition="center"
               backgroundSize={"cover"}
             ></Box>
           </AspectRatio>
         </Link>
-        <Flex direction={"column"} flex={1} justifyContent="space-between">
-          <Link fontWeight={700} fontSize={{ base: "sm", md: 20 }} mt={5}>
+        <Flex direction={"column"} flex={1} justifyContent="space-evenly" px={{base:"5"}}>
+          <Link fontWeight={700} fontSize={{ base: "sm", md: 20 }} mt={{base:0, md:20}}>
             {product.title}
           </Link>
-          <Text mt={-5} display={{ base: "none", md: "block" }}>
+          <Text my={3} >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
             doloremque sequi inventore, quo, maxime fuga veritatis ab fugiat
             possimus, iste adipisci vel aspernatur ullam totam consequuntur
             voluptatibus saepe maiores. Eius.
           </Text>
           <Flex gap={5} fontSize={{ base: "sm", md: 20 }}>
-            <Text fontWeight={700} color="red.400">
+            <Text fontWeight={700} color="red.400" mb={2}>
               {product.price}
             </Text>
             <Text>
@@ -61,8 +67,9 @@ export default function ProductPageComponent({ product }: ProductPageProps) {
             color="white"
             _hover={{ bg: "red.400" }}
             mx={{ base: "auto", md: "0" }}
-            maxW={{ base: "100px", md: "50%" }}
+            maxW={{ base: "100%", md: "50%" }}
             fontSize={{ base: "sm", md: "md" }}
+            mb={{base:"5", md:0}}
             onClick={() =>
               dispatch(addToCart(product.title, product.img, product.price, 1))
             }

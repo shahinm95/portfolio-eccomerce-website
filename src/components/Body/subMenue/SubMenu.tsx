@@ -17,7 +17,7 @@ import SideMenu from "./SideMenu";
 import Icon from "@chakra-ui/icon";
 import BagMobile from "./BagMobile";
 import LikeMobile from "./LikeMobile";
-
+import NextLink from "next/link";
 
 export default function SubMenu() {
   const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
@@ -38,16 +38,16 @@ export default function SubMenu() {
       alignItems="center"
       color="gray.700"
     >
-      <Link href="#" fontSize={28} onClick={onToggle}>
+      <Link fontSize={28} onClick={onToggle}>
         <AiOutlineMenu />
       </Link>
       <BagMobile />
-      <Link fontSize={28}>
+      <Link fontSize={28} as={NextLink} href={`/`}>
         <AiOutlineHome />
       </Link>
       <LikeMobile />
       <Link fontSize={28}>
-        <BsGrid />
+        <BsGrid as={NextLink} href={`/`} />
       </Link>
       <Drawer isOpen={isOpen} placement="left" onClose={onClose} size="full">
         <DrawerContent>
