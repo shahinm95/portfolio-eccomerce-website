@@ -1,0 +1,280 @@
+interface Mother {
+    title: string;
+    img: string;
+    oldpr: string;
+    price: string;
+}
+
+
+export const MotherList: Mother[] = [
+    {
+        title: 'Baby Fabric Shoes',
+        img: '/images/products/1.jpg',
+        oldpr: '$5.00',
+        price: '$4.00',
+    },
+    {
+        title: "Men's Hoodies T-shirt",
+        img: '/images/products/2.jpg',
+        oldpr: '$17.00',
+        price: '$7.00',
+    },
+    {
+        title: 'Girls T-shirt',
+        img: '/images/products/3.jpg',
+        oldpr: '$5.00',
+        price: '$3.00',
+    },
+    {
+        title: 'Woolen Hat For Men',
+        img: '/images/products/4.jpg',
+        oldpr: '$18.00',
+        price: '$12.00',
+    },
+    {
+        title: 'shampoo, conditioner & facewash packs',
+        img: '/images/products/shampoo.jpg',
+        oldpr: '$200.00',
+        price: '$150.00',
+    },
+    {
+        title: 'Rose Gold diamonds Earring',
+        img: '/images/products/jewellery-1.jpg',
+        oldpr: '$2000.00',
+        price: '$1990.00',
+    },
+    {
+        title: 'Girls pnk Embro design Top',
+        img: '/images/products/clothes-2.jpg',
+        oldpr: '$61.00',
+        price: '$9.00',
+    },
+    {
+        title: 'Black Floral Wrap Midi Skirt',
+        img: '/images/products/clothes-3.jpg',
+        oldpr: '$76.00',
+        price: '$25.00',
+    },
+    {
+        title: 'Relaxed Short full Sleeve T-Shirt',
+        img: '/images/products/clothes-1.jpg',
+        oldpr: '$45.00',
+        price: '$12.00',
+    },
+    {
+        title: 'Pure Garment Dyed Cotton Shirt',
+        img: '/images/products/shirt-1.jpg',
+        oldpr: '$68.00',
+        price: '$31.00',
+    },
+    {
+        title: 'MEN Yarn Fleece Full-Zip Jacket',
+        img: '/images/products/jacket-5.jpg',
+        oldpr: '$61.00',
+        price: '$11.00',
+    },
+    {
+        title: 'Mens Winter Leathers Jackets',
+        img: '/images/products/jacket-1.jpg',
+        oldpr: '$32.00',
+        price: '$20.00',
+    },
+    {
+        title: 'Mens Winter Leathers Jacket',
+        img: '/images/products/jacket-3.jpg',
+        oldpr: '$50.00',
+        price: '$25.00',
+    },
+    {
+        title: 'Better Basics French Terry Sweatshorts',
+        img: '/images/products/shorts-1.jpg',
+        oldpr: '$20.00',
+        price: '$10.00',
+    },
+    {
+        title: 'Womens Party Wear Shoes',
+        img: '/images/products/party-wear-1.jpg',
+        oldpr: '$94.00',
+        price: '$42.00',
+    },
+    {
+        title: "Mens Winter Leathers Jackets",
+        img: "/images/products/jacket-3.jpg",
+        oldpr: "$75.00",
+        price: "$48.00",
+    },
+    {
+        title: "Pure Garment Dyed Cotton Shirt",
+        img: "/images/products/shirt-1.jpg",
+        oldpr: "$56.00",
+        price: "$45.00",
+    },
+    {
+        title: "MEN Yarn Fleece Full-Zip Jacket",
+        img: "/images/products/jacket-5.jpg",
+        oldpr: "$65.00",
+        price: "$58.00",
+    },
+    {
+        title: "Black Floral Wrap Midi Skirt",
+        img: "/images/products/clothes-3.jpg",
+        oldpr: "$35.00",
+        price: "$25.00",
+    },
+    {
+        title: "Casual Men's Brown shoes",
+        img: "/images/products/shoe-2.jpg",
+        oldpr: "$105.00",
+        price: "$99.00",
+    },
+    {
+        title: "Pocket Watch Leather Pouch",
+        img: "/images/products/watch-3.jpg",
+        oldpr: "$170.00",
+        price: "$150.00",
+    },
+    {
+        title: "Smart watche Vital Plus",
+        img: "/images/products/watch-1.jpg",
+        oldpr: "$120.00",
+        price: "$100.00",
+    },
+    {
+        title: "Womens Party Wear Shoes",
+        img: "/images/products/party-wear-1.jpg",
+        oldpr: "$30.00",
+        price: "$25.00",
+    },
+    {
+        title: "Mens Winter Leathers Jackets2",
+        img: "/images/products/jacket-1.jpg",
+        oldpr: "$45.00",
+        price: "$32.00",
+    },
+    {
+        title: "Trekking & Running Shoes - black",
+        img: "/images/products/sports-2.jpg",
+        oldpr: "$64.00",
+        price: "$58.00",
+    },
+    {
+        title: "Men's Leather Formal Wear shoes",
+        img: "/images/products/shoe-1.jpg",
+        oldpr: "$65.00",
+        price: "$50.00",
+    },
+    {
+        title: "Better Basics French Terry Sweatshorts",
+        img: "/images/products/shorts-1.jpg",
+        oldpr: "$85.00",
+        price: "$78.00",
+    },
+    {
+        title: "Pocket Watch Leather Pouch",
+        img: '/images/products/watch-3.jpg',
+        oldpr: '$50.00',
+        price: '$34.00',
+    },
+    {
+        title: "Silver Deer Heart Necklace",
+        img: '/images/products/jewellery-3.jpg',
+        oldpr: '$84.00',
+        price: '$30.00',
+    },
+    {
+        title: "Titan 100 Ml Womens Perfume",
+        img: '/images/products/perfume.jpg',
+        oldpr: '$42.00',
+        price: '$10.00',
+    },
+    {
+        title: "Men's Leather Reversible Belt",
+        img: '/images/products/belt.jpg',
+        oldpr: '$24.00',
+        price: '$10.00',
+    },
+    {
+        title: "platinum Zircon Classic Ring",
+        img: '/images/products/jewellery-2.jpg',
+        oldpr: '$65.00',
+        price: '$$62.00',
+    },
+    {
+        title: "Smart watche Vital Plus",
+        img: '/images/products/watch-1.jpg',
+        oldpr: '$78.00',
+        price: '$56.00',
+    },
+    {
+        title: "shampoo conditioner packs",
+        img: '/images/products/shampoo.jpg',
+        oldpr: '$30.00',
+        price: '$20.00',
+    },
+    {
+        title: "Rose Gold Peacock Earrings",
+        img: '/images/products/jewellery-1.jpg',
+        oldpr: '$30.00',
+        price: '$20.00',
+    },
+    {
+        title: 'Womens Party Wear Shoes',
+        img: '/images/products/party-wear-1.jpg',
+        oldpr: '$94.00',
+        price: '$42.00',
+    },
+    {
+        title: 'Running & Trekking Shoes - White',
+        img: '/images/products/sports-1.jpg',
+        oldpr: '$49.00',
+        price: '$15.00',
+    },
+    {
+        title: 'Trekking & Running Shoes - black',
+        img: '/images/products/sports-2.jpg',
+        oldpr: '$78.00',
+        price: '$36.00',
+    },
+    {
+        title: 'Womens Party Wear Shoes',
+        img: '/images/products/party-wear-1.jpg',
+        oldpr: '$94.00',
+        price: '$42.00',
+    },
+    {
+        title: "Sports Claw Women's Shoes",
+        img: '/images/products/sports-3.jpg',
+        oldpr: '$65.00',
+        price: '$54.00',
+    },
+    {
+        title: 'Air Trekking Shoes - white',
+        img: '/images/products/sports-6.jpg',
+        oldpr: '$55.00',
+        price: '$52.00',
+    },
+    {
+        title: 'Boot With Suede Detail',
+        img: '/images/products/shoe-3.jpg',
+        oldpr: '$30.00',
+        price: '$20.00',
+    },
+    {
+        title: "Men's Leather Formal Wear shoes",
+        img: '/images/products/shoe-1.jpg',
+        oldpr: '$78.00',
+        price: '$56.00',
+    },
+    {
+        title: "Casual Men's Brown shoes",
+        img: '/images/products/shoe-2.jpg',
+        oldpr: '$78.00',
+        price: '$50.00',
+    },
+    {
+        title: "Men's Leather Reversible Belt",
+        img: '/images/products/belt.jpg',
+        oldpr: '$24.00',
+        price: '$10.00',
+    },
+]

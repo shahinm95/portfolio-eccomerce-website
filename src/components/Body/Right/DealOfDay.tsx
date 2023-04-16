@@ -3,8 +3,7 @@ import { dealOfDay } from '@/listdata/dealOfDay'
 import { Box, Flex, VStack, Link, Text, Button, AspectRatio } from '@chakra-ui/react'
 import { useDispatch } from "react-redux";
 import { addToCart} from "@/redux/actions";
-
-
+import NextLink from 'next/link';
 
 export default function DealOfDay() {
 
@@ -30,12 +29,12 @@ export default function DealOfDay() {
                             >
                                 <Link flex={1} justifyContent="center" alignContent={'center'} >
                                     <AspectRatio ratio={{base:3/5,md:3 / 3}}>
-                                        <Box bgImg={deal.img} flex={1} w="100%" maxH="100%" backgroundPosition="center" backgroundSize={"cover"} >
+                                        <Box as={NextLink} href={`/${encodeURIComponent(deal.title)}`} bgImg={deal.img} flex={1} w="100%" maxH="100%" backgroundPosition="center" backgroundSize={"cover"} >
                                         </Box>
                                     </AspectRatio>
                                 </Link>
                                 <Flex direction={'column'} flex={1} justifyContent="space-between" >
-                                    <Link fontWeight={700} fontSize={{base:"sm",md:20}} mt={5} >{deal.title}</Link>
+                                    <Link fontWeight={700} fontSize={{base:"sm",md:20}} mt={5} as={NextLink}  href={`/${encodeURIComponent(deal.title)}`} >{deal.title}</Link>
                                     <Text mt={-5} display={{base:"none", md:"block"}} >{deal.descrp}</Text>
                                     <Flex gap={5} fontSize={{base:"sm",md:20}} >
                                         <Text fontWeight={700} color="red.400">{deal.price}</Text>
