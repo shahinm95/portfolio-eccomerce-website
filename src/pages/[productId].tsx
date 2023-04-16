@@ -9,7 +9,8 @@ import Footer from "@/components/Body/Footer/Footer";
 import SubMenu from "@/components/Body/subMenue/SubMenu";
 import ProductPageComponent from "@/components/ProductPage/ProductPage";
 import { MotherList } from "@/listdata/motherList";
-
+import { GetStaticPaths } from "next";
+import { GetStaticProps } from "next";
 
 interface Product {
   title: string;
@@ -19,6 +20,7 @@ interface Product {
 }
 
 const ProductPage: NextPage<{ product: Product }> = ({ product }) => {
+  console.log(product);
   return (
     <>
       <Head>
@@ -43,8 +45,8 @@ export default ProductPage;
 
 
 
-export async function getStaticPaths(){
-  const products : Product[] = await MotherList;
+export function getStaticPaths(){
+  const products : Product[] =  MotherList;
   const paths = products.map((product) =>({
     params : {productId : encodeURIComponent(product.title)}
   }))
@@ -52,9 +54,9 @@ export async function getStaticPaths(){
 }
 
 
-export async function getStaticProps({params}: {params: Record<string, string | string[]> }): Promise<{props: {product: Product}}> {
+export function getStaticProps({params}: {params: Record<string, string | string[]> }) {
   const productName = params.productId
-  const productId : number = await MotherList.findIndex(name => name.title ===productName)
+  const productId : number = MotherList.findIndex(name => name.title ===productName)
   const product: Product = productId === -1 ? {} as Product : MotherList[productId]
   return {props :{ product }} 
 }
