@@ -7,6 +7,7 @@ import Carousel from '@/components/Carosel/Carousel'
 import BodyMain from '@/components/Body/BodyMain'
 import Footer from '@/components/Body/Footer/Footer'
 import SubMenu from '@/components/Body/subMenue/SubMenu'
+import FloatingCart from '@/components/header/FloatingCart'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -25,6 +26,7 @@ export default function Home() {
           <BodyMain />
           <Footer />
           <SubMenu />
+          {/* <FloatingCart /> */}
         </Box>
       </main>
     </>

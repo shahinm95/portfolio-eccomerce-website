@@ -21,6 +21,7 @@ export default function Carousel() {
             maxW={'80%'}
             margin="10px auto"
             maxH={'100%'}
+            mt={"140px"}
         >
             <AspectRatio
                 ratio={{ base: 3 / 4, md: 4 / 2, lg: 4 / 2 }}

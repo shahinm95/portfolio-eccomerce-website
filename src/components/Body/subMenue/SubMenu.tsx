@@ -12,11 +12,11 @@ import {
   DrawerHeader,
 } from "@chakra-ui/react";
 import { AiOutlineMenu, AiOutlineHome, AiOutlineHeart } from "react-icons/ai";
-import { IoBagOutline } from "react-icons/io5";
 import { BsGrid } from "react-icons/bs";
 import SideMenu from "./SideMenu";
 import Icon from "@chakra-ui/icon";
-
+import BagMobile from "./BagMobile";
+import LikeMobile from "./LikeMobile";
 
 
 export default function SubMenu() {
@@ -41,16 +41,11 @@ export default function SubMenu() {
       <Link href="#" fontSize={28} onClick={onToggle}>
         <AiOutlineMenu />
       </Link>
-
-      <Link fontSize={28}>
-        <IoBagOutline />
-      </Link>
+      <BagMobile />
       <Link fontSize={28}>
         <AiOutlineHome />
       </Link>
-      <Link fontSize={28}>
-        <AiOutlineHeart />
-      </Link>
+      <LikeMobile />
       <Link fontSize={28}>
         <BsGrid />
       </Link>
