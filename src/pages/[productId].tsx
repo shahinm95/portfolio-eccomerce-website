@@ -19,7 +19,6 @@ interface Product {
 }
 
 const ProductPage: NextPage<{ product: Product }> = ({ product }) => {
-  let deal = product
   return (
     <>
       <Head>
@@ -31,7 +30,7 @@ const ProductPage: NextPage<{ product: Product }> = ({ product }) => {
         <Box>
           <AnouncmentBar />
           <Header />
-          <ProductPageComponent product={deal} />
+          <ProductPageComponent product={product} />
           <Footer />
           <SubMenu />
         </Box>
