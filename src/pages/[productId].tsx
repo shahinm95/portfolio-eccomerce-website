@@ -11,7 +11,7 @@ import ProductPageComponent from "@/components/ProductPage/ProductPage";
 import { MotherList } from "@/listdata/motherList";
 import { GetStaticPaths } from "next";
 import { GetStaticProps } from "next";
-
+import { useRouter } from "next/router";
 interface Product {
   title: string;
   img: string;
@@ -19,7 +19,15 @@ interface Product {
   price: string;
 }
 
-const ProductPage: NextPage<{ product: Product }> = ({ product }) => {
+const ProductPage = () => {
+  const router = useRouter();
+  const { productName  } = router.query;
+  const productString =typeof productName === "string" ? decodeURIComponent(productName) : ""
+  const productId: number = MotherList.findIndex(
+    (name) => name.title === productString
+  );
+  const product: Product =
+    productId === -1 ? ({} as Product) : MotherList[productId];
   console.log(product);
   return (
     <>
@@ -43,20 +51,20 @@ const ProductPage: NextPage<{ product: Product }> = ({ product }) => {
 
 export default ProductPage;
 
-
-
-export function getStaticPaths(){
-  const products : Product[] =  MotherList;
-  const paths = products.map((product) =>({
-    params : {productId : encodeURIComponent(product.title)}
-  }))
-  return { paths, fallback : false}
+export function getStaticPaths() {
+  const products: Product[] = MotherList;
+  const paths = products.map((product) => ({
+    params: { productId: encodeURIComponent(product.title) },
+  }));
+  return { paths, fallback: false };
 }
 
-
-export function getStaticProps({params}: {params: Record<string, string | string[]> }) {
-  const productName = params.productId
-  const productId : number = MotherList.findIndex(name => name.title ===productName)
-  const product: Product = productId === -1 ? {} as Product : MotherList[productId]
-  return {props :{ product }} 
-}
+// export function getStaticProps({ params }: { params: Record<string, string> }) {
+//   const productName = decodeURIComponent(params.productId);
+//   const productId: number = MotherList.findIndex(
+//     (name) => name.title === productName
+//   );
+//   const product: Product =
+//     productId === -1 ? ({} as Product) : MotherList[productId];
+//   return { props: { product } };
+// }
