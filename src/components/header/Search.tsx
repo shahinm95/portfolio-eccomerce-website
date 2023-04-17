@@ -46,7 +46,7 @@ export default function Search() {
   // Debounce logic to wait for user to stop typing before actually filtering the list
   const debounce = (func: Function, delay: number) => {
     let timeoutId: NodeJS.Timeout;
-    return function (...args: any) {
+    return function (this: any, ...args: any) {
       const context = this;
       if (timeoutId) {
         clearTimeout(timeoutId);
