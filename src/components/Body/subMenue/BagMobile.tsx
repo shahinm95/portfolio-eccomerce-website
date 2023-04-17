@@ -20,8 +20,7 @@ import { addToCart, removeFromCartAction } from "@/redux/actions";
 import { RootState } from "@/redux/store";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { RiDeleteBin6Line } from "react-icons/ri";
-import NextLink from 'next/link';
-
+import NextLink from "next/link";
 
 export default function BagMobile() {
   const { onToggle, isOpen, onOpen, onClose } = useDisclosure();
@@ -65,17 +64,17 @@ export default function BagMobile() {
           </Text>
         )}
       </Link>
-      <Drawer isOpen={isOpen} placement="left" onClose={onClose} size="full" >
+      <Drawer isOpen={isOpen} placement="left" onClose={onClose} size="full">
         <DrawerContent>
           <DrawerCloseButton></DrawerCloseButton>
           <DrawerHeader borderBottom={"1px solid"} borderBottomColor="gray.300">
             Cart Items
           </DrawerHeader>
           <DrawerBody>
-          <Flex justify="space-between" align="center" pb={5}>
-            <Text>{CartQuantity} Items</Text>
-            <Link color="red.500">See Cart Items </Link>
-          </Flex>
+            <Flex justify="space-between" align="center" pb={5}>
+              <Text>{CartQuantity} Items</Text>
+              <Link color="red.500">See Cart Items </Link>
+            </Flex>
             <Box maxH={"95%"} h={"80%"} overflowY={"auto"}>
               {cartItems.map((item, index) => {
                 return (
@@ -88,14 +87,22 @@ export default function BagMobile() {
                     mb={5}
                   >
                     <Flex justify="space-between" align="center">
-                      <Text as={NextLink} href={`/${encodeURIComponent(item.title)}`}>{item.title}</Text>
+                      <Text
+                        onClick={onClose}
+                        as={NextLink}
+                        href={`/${encodeURIComponent(item.title)}`}
+                      >
+                        {item.title}
+                      </Text>
                       <Box
+                        onClick={onClose}
                         minW={20}
                         minH={20}
                         backgroundImage={item.img}
                         backgroundSize={"cover"}
                         backgroundPosition="center"
-                        as={NextLink} href={`/${encodeURIComponent(item.title)}`}
+                        as={NextLink}
+                        href={`/${encodeURIComponent(item.title)}`}
                       ></Box>
                     </Flex>
                     <Flex justify="space-between" align="center">

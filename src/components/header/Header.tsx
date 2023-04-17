@@ -16,6 +16,7 @@ import HeaderSub from "./HeaderSub";
 import Cart from "./Cart";
 import LikedWindow from "./LikedWindow";
 import NextLink from 'next/link';
+import Search from "./Search";
 
 export default function Header() {
 
@@ -54,8 +55,6 @@ export default function Header() {
         fontSize="14px"
         lineHeight="19.6px"
         padding="0px 40px"
-        // maxH={"800px"}
-        // top={0}
       >
         <Flex
           alignItems="center"
@@ -75,7 +74,7 @@ export default function Header() {
               line-height="14px"
               padding="7.5px 12px"
             >
-              <SearchIcon fill="#212121" />
+              <Search />
             </Link>
           </Box>
           <Box

@@ -19,7 +19,7 @@ export default function SideMenu({ onClose }: SideMenuProps) {
 
   return (
     <Flex direction={"column"}>
-        <Link _hover={{textDecoration: "none"}} as={NextLink} href={`/`} fontSize={17} fontWeight={700} mt={8} >Home</Link>
+        <Link _hover={{textDecoration: "none"}} onClick={onClose} as={NextLink} href={`/`} fontSize={17} fontWeight={700} mt={8} >Home</Link>
       {NAV_ITEMS.map((item, index) => {
         return (
           <Flex direction={"column"} key={item.label}>

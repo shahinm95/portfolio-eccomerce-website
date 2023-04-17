@@ -19,7 +19,7 @@ import { useDispatch } from "react-redux";
 import { toggleToLiked } from "@/redux/actions";
 import { RootState } from "@/redux/store";
 import { RiDeleteBin6Line } from "react-icons/ri";
-import NextLink from 'next/link';
+import NextLink from "next/link";
 
 export default function LikeMobile() {
   const { onToggle, isOpen, onOpen, onClose } = useDisclosure();
@@ -32,7 +32,6 @@ export default function LikeMobile() {
     state.likedItemsReducer.cartItems.map((item) => (likedCount += 1));
     return likedCount;
   });
-
 
   return (
     <Box>
@@ -54,11 +53,11 @@ export default function LikeMobile() {
           </Text>
         )}
       </Link>
-      <Drawer isOpen={isOpen} placement="left" onClose={onClose} size="full" >
+      <Drawer isOpen={isOpen} placement="left" onClose={onClose} size="full">
         <DrawerContent>
           <DrawerCloseButton></DrawerCloseButton>
           <DrawerHeader borderBottom={"1px solid"} borderBottomColor="gray.300">
-          Favourite Items
+            Favourite Items
           </DrawerHeader>
           <DrawerBody>
             <Text pb={5}>{likedQuantity} Items</Text>
@@ -74,14 +73,22 @@ export default function LikeMobile() {
                     mb={5}
                   >
                     <Flex justify="space-between" align="center">
-                      <Text as={NextLink} href={`/${encodeURIComponent(item.title)}`}>{item.title}</Text>
+                      <Text
+                        onClick={onClose}
+                        as={NextLink}
+                        href={`/${encodeURIComponent(item.title)}`}
+                      >
+                        {item.title}
+                      </Text>
                       <Box
+                        onClick={onClose}
                         minW={20}
                         minH={20}
                         backgroundImage={item.img}
                         backgroundSize={"cover"}
                         backgroundPosition="center"
-                        as={NextLink} href={`/${encodeURIComponent(item.title)}`}
+                        as={NextLink}
+                        href={`/${encodeURIComponent(item.title)}`}
                       ></Box>
                     </Flex>
                     <Flex justify="space-between" align="center">
@@ -97,11 +104,13 @@ export default function LikeMobile() {
                         border={"1px solid"}
                       >
                         <Text cursor={"pointer"}>
-                            <RiDeleteBin6Line
-                              onClick={() =>
-                                dispatch(toggleToLiked(item.title, item.img, item.price))
-                              }
-                            />
+                          <RiDeleteBin6Line
+                            onClick={() =>
+                              dispatch(
+                                toggleToLiked(item.title, item.img, item.price)
+                              )
+                            }
+                          />
                         </Text>
                       </HStack>
                       <Text fontSize={18}>{item.price}</Text>
@@ -110,7 +119,6 @@ export default function LikeMobile() {
                 );
               })}
             </Box>
-            
           </DrawerBody>
         </DrawerContent>
       </Drawer>

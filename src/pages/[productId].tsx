@@ -29,7 +29,6 @@ const ProductPage = () => {
   );
   const product: Product =
     productId === -1 ? ({} as Product) : MotherList[productId];
-  console.log(product);
   return (
     <>
       <Head>
