@@ -37,10 +37,14 @@ export default function Search() {
   const [matchCount, setMatchCount] = useState(0);
 
   const filterList = (list: Mother[], searchWord: string): Mother[] => {
-    if (searchWord.length > 0){
-    return list.filter(
-      (obj) => obj.title.toLowerCase().indexOf(searchWord.toLowerCase()) !== -1
-    );} else {return []}
+    if (searchWord.length > 0) {
+      return list.filter(
+        (obj) =>
+          obj.title.toLowerCase().indexOf(searchWord.toLowerCase()) !== -1
+      );
+    } else {
+      return [];
+    }
   };
 
   // Debounce logic to wait for user to stop typing before actually filtering the list
@@ -64,6 +68,10 @@ export default function Search() {
       setMatchCount(filteredObjs.length);
     }, 500);
     filterListDebounced();
+    return () => {
+      setMatchingObjs([]);
+      setMatchCount(0);
+    };
   }, [searchWord]);
 
   const { onClose, onOpen, isOpen, onToggle } = useDisclosure();
@@ -80,6 +88,77 @@ export default function Search() {
       return <AiOutlineHeart />;
     }
   };
+
+  const foundSearchItems =
+    matchCount > 0 &&
+    matchingObjs.map((item) => {
+      return (
+        <Box
+          key={item.title}
+          border="1px solid"
+          borderColor={"gray.200"}
+          borderRadius="3xl"
+          p={5}
+          mb={5}
+        >
+          <Flex justify="space-between" align="center">
+            <Text
+              onClick={onClose}
+              as={NextLink}
+              href={`/${encodeURIComponent(item.title)}`}
+            >
+              {item.title}
+            </Text>
+            <Box
+              onClick={onClose}
+              minW={20}
+              minH={20}
+              backgroundImage={item.img}
+              backgroundSize={"cover"}
+              backgroundPosition="center"
+              as={NextLink}
+              href={`/${encodeURIComponent(item.title)}`}
+            ></Box>
+          </Flex>
+          <Flex justify="space-between" align="center">
+            <HStack
+              align={"center"}
+              fontSize={20}
+              color={"red.400"}
+              spacing={5}
+              py={1}
+              px={2}
+              borderColor={"gray.300"}
+              borderRadius={"xl"}
+              border={"1px solid"}
+            >
+              <Text
+                cursor={"pointer"}
+                onClick={() =>
+                  dispatch(addToCart(item.title, item.img, item.price, 1))
+                }
+              >
+                <AiOutlinePlus />{" "}
+              </Text>
+              <Text
+                fontSize={20}
+                color="red.300"
+                cursor={"pointer"}
+                _hover={{ color: "red.700" }}
+                onClick={() => {
+                  return dispatch(
+                    toggleToLiked(item.title, item.img, item.price)
+                  );
+                }}
+              >
+                {LikedOrNotHAndler(item.title)}
+              </Text>
+            </HStack>
+            <Text fontSize={18}>{item.price}</Text>
+          </Flex>
+        </Box>
+      );
+    });
 
   return (
     <Box>
@@ -105,87 +184,17 @@ export default function Search() {
               setSearchWord(e.target.value);
             }}
           ></Input>
-          <DrawerBody>
-            <Text
+          <Text
               borderBottom={"1px solid"}
               borderBottomColor="gray.300"
-              mb={2}
+              my={2}
+              textAlign={'center'}
             >
               {matchCount} Items Found
             </Text>
-            <Box>
-              {matchCount>0 &&
-                matchingObjs.map((item) => {
-                  return (
-                    <Box
-                      key={item.title}
-                      border="1px solid"
-                      borderColor={"gray.200"}
-                      borderRadius="3xl"
-                      p={5}
-                      mb={5}
-                    >
-                      <Flex justify="space-between" align="center">
-                        <Text
-                          onClick={onClose}
-                          as={NextLink}
-                          href={`/${encodeURIComponent(item.title)}`}
-                        >
-                          {item.title}
-                        </Text>
-                        <Box
-                          onClick={onClose}
-                          minW={20}
-                          minH={20}
-                          backgroundImage={item.img}
-                          backgroundSize={"cover"}
-                          backgroundPosition="center"
-                          as={NextLink}
-                          href={`/${encodeURIComponent(item.title)}`}
-                        ></Box>
-                      </Flex>
-                      <Flex justify="space-between" align="center">
-                        <HStack
-                          align={"center"}
-                          fontSize={20}
-                          color={"red.400"}
-                          spacing={5}
-                          py={1}
-                          px={2}
-                          borderColor={"gray.300"}
-                          borderRadius={"xl"}
-                          border={"1px solid"}
-                        >
-                          <Text
-                            cursor={"pointer"}
-                            onClick={() =>
-                              dispatch(
-                                addToCart(item.title, item.img, item.price, 1)
-                              )
-                            }
-                          >
-                            <AiOutlinePlus />{" "}
-                          </Text>
-                          <Text
-                            fontSize={20}
-                            color="red.300"
-                            cursor={"pointer"}
-                            _hover={{ color: "red.700" }}
-                            onClick={() => {
-                              return dispatch(
-                                toggleToLiked(item.title, item.img, item.price)
-                              );
-                            }}
-                          >
-                            {LikedOrNotHAndler(item.title)}
-                          </Text>
-                        </HStack>
-                        <Text fontSize={18}>{item.price}</Text>
-                      </Flex>
-                    </Box>
-                  );
-                })}
-            </Box>
+          <DrawerBody>
+            
+            <Box>{foundSearchItems}</Box>
           </DrawerBody>
         </DrawerContent>
       </Drawer>
